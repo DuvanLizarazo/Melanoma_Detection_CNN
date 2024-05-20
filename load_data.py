@@ -6,9 +6,9 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import ModelCheckpoint
 
 # Check if a saved model exists
-if os.path.exists('melanoma_classifier.h5'):
+if os.path.exists('melanoma_classifier.keras'):
     # Load the saved model if it exists
-    model = load_model('melanoma_classifier.h5')
+    model = load_model('melanoma_classifier.keras')
     print("Model loaded.")
 else:
     # Data directories
@@ -81,7 +81,7 @@ else:
     print("Model created.")
 
     # Define a checkpoint to save the model after each epoch
-    checkpoint = ModelCheckpoint('melanoma_classifier_epoch_{epoch:02d}.h5', save_weights_only=False)
+    checkpoint = ModelCheckpoint('melanoma_classifier_epoch_{epoch:02d}.keras', save_weights_only=False)
 
     # Train the model with more epochs and batch size
     history = model.fit(
@@ -94,7 +94,7 @@ else:
     )
 
     # Save the final trained model
-    model.save('melanoma_classifier_final.h5')
+    model.save('melanoma_classifier_final.keras')
     print("Final model saved.")
 
 # Evaluate the model
